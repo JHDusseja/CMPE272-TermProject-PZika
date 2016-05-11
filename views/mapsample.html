@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+      <title>pZika</title>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+      <script src="http://cdn.pubnub.com/pubnub-3.7.1.min.js"></script>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" >
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" >
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+      <style>
+          .modal-dialog {
+              width: 900px; /* New width for default modal */
+          }
+
+          ul
+          {
+              list-style-type: none;
+              margin: 0;
+              padding: 0;
+              overflow: hidden;
+              background-color: #666666;
+          }
+
+          li
+          {
+              float: right;
+              border-right:1px solid #bbb;
+          }
+
+          li a:link, a:visited
+          {
+              display: block;
+              color: white;
+              text-align: center;
+              padding: 14px 16px;
+              text-decoration: none;
+          }
+
+          li a:hover
+          {
+              background-color: #3399ff;
+          }
+
+
+          html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+      }
+      #floating-panel {
+        position: absolute;
+        top: 10px;
+        left: 25%;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+      }
+      #floating-panel {
+        background-color: #fff;
+        border: 1px solid #999;
+        left: 25%;
+        padding: 5px;
+        position: absolute;
+        top: 10px;
+        z-index: 5;
+      }
+    </style>
+
+    <!--<script>-->
+        <!--var mydatajson = new Array();-->
+        <!--var mydata;-->
+        <!--var lat;-->
+        <!--var lng;-->
+        <!--var watchID;-->
+        <!--var geoLoc;-->
+        <!--var map, heatmap, marker, info;-->
+        <!--var imarker;-->
+        <!--//var mar = new Array();-->
+        <!--var d = new Date();-->
+       <!--var x  =  d.getMonth();-->
+        <!--$(function() {-->
+        <!--$.ajax({-->
+            <!--method: "get",-->
+          <!--url: 'getZikaAffectedData',-->
+          <!--data: " ",-->
+          <!--success: function (data) {-->
+           <!--mydata = data;-->
+
+            <!--initMap();-->
+
+
+          <!--}-->
+        <!--});-->
+
+      <!--});-->
+
+    <!--</script>-->
+      <script>
+          var mydatajson = new Array();
+          var mydata;
+          var lat,lon;
+          var lng;
+          var watchID;
+          var geoLoc;
+          var map, heatmap, marker, info;
+          var imarker;
+          var d = new Date();
+          var x  =  d.getMonth();
+          var flag=false;
+          $(function() {
+              $.ajax({
+                  method: "get",
+                  url: 'getZikaAffectedData',
+                  data: " ",
+                  success: function (data) {
+                      mydata = data;
+                      initMap();
+                  }
+              });
+
+              $("#mainbody").on('click', ".hotelbuttons", function(){
+                  $.ajax({
+                      method: "get",
+                      url: 'getHotels/'+(this).id,
+                      data: " ",
+                      success: function (data) {
+                          var clt,cln,myhtml;
+                          $("#myModalBody").html("");
+                          $("#myModalLabel").html("Hotels");
+                          if(watchID!=null) {
+                              navigator.geolocation.clearWatch(watchID);
+                              flag=true;
+                          }
+                          navigator.geolocation.getCurrentPosition(successgetpos, function error(e){alert("error");starttrackeragain(flag);}, {enableHighAccuracy: true, timeout: 10000});
+                          function successgetpos(pos){
+                              clt=pos.coords.latitude;
+                              cln=pos.coords.longitude;
+                              myhtml = '<table class="table table-hover"><tr><th>Hotel</th><th>Distance in Kms</th></tr>';
+                              for (var i = 0; i < data.results.length; i++) {
+                                  var dst = getDistanceFromLatLonInKm(clt,cln,data.results[i].latitude,data.results[i].longitude);
+                                  myhtml+= "<tr><td><a href='javascript:void(0)' class='hotellinks' id='" + data.results[i].hotel + "'>"+data.results[i].hotel+"</a>" +
+                                          "</td><td>"+dst+"</td></tr>";
+                              }
+                              myhtml+= '</table>';
+                              $("#myModalBody").html(myhtml);
+                              $("#myModal").modal('show');
+                              starttrackeragain(flag);
+                          }
+                      }
+                  });
+              });
+
+              function starttrackeragain(myflag){
+                  if(myflag)
+                      tracker();
+              }
+
+              $("#mainbody").on('click', ".pharmacybuttons", function(){
+                  $.ajax({
+                      method: "get",
+                      url: 'getPharmacies/'+(this).id,
+                      data: " ",
+                      success: function (data) {
+                          var clt,cln,myhtml;
+                          $("#myModalBody").html("");
+                          $("#myModalLabel").html("Pharmacies");
+                          if(watchID!=null) {
+                              navigator.geolocation.clearWatch(watchID);
+                              flag=true;
+                          }
+                          navigator.geolocation.getCurrentPosition(successgetpos, function error(e){alert("error");starttrackeragain(flag);}, {enableHighAccuracy: true, timeout: 10000});
+                          function successgetpos(pos) {
+                              clt = pos.coords.latitude;
+                              cln = pos.coords.longitude;
+                              myhtml = '<table class="table table-hover"><tr><th>Pharmacy</th><th>Distance in Kms</th></tr>';
+                              for (var i = 0; i < data.results.length; i++) {
+                                  var dst = getDistanceFromLatLonInKm(clt,cln,data.results[i].latitude,data.results[i].longitude);
+                                  myhtml+= "<tr><td><a href='javascript:void(0)' class='pharmacylinks' id='" + data.results[i].pharmacy + "'>" + data.results[i].pharmacy + "</a>" +
+                                          "</td><td>" + dst + "</td></tr>";
+                                  //$("#myModalBody").append("<a href='javascript:void(0)' class='pharmacylinks' id='" + data.results[i].pharmacy + "'>" + data.results[i].pharmacy + "</a>" +
+                                  //      "&nbsp;&nbsp;"+dst+"<br>");
+                              }
+                              myhtml+= '</table>';
+                              $("#myModalBody").html(myhtml);
+                              $("#myModal").modal('show');
+                              starttrackeragain(flag);
+                          }
+                      }
+                  });
+              });
+
+              $("#mainbody").on('click', ".hotellinks", function(){
+                  //alert((this).id);
+              });
+
+              $("#mainbody").on('click', ".pharmacylinks", function(){
+                  //alert((this).id);
+              });
+          });
+      </script>
+
+  </head>
+
+  <body style="height:100%">
+  <ul>
+      <li><a href="#aboutus-modal" data-toggle="modal" data-target="#aboutus-modal">About Us</a></li>
+      <li><a href="#projectdescription-modal" data-toggle="modal" data-target="#projectdescription-modal">How to Read the Map?</a></li>
+      <li><a href="javascript:void(0);" onclick="tracker();">Track Me</a></li>
+      <li><a href="#" onclick="goback();">Show US map</a></li>
+  </ul>
+
+  <!-- About Us Modal -->
+  <div class="modal fade" id="aboutus-modal" role="dialog" style="text-align: justify">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-body">
+                  <p><i style="font-size: 150%;">We are a <strong>Team</strong> of four with a mission to help people stay away from viruses.<br>
+                  </i></p>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div class="modal fade" id="Precautions-modal" role="dialog" style=" text-align: justify">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-body" id="precautionsbody">
+
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- Project Description Modal -->
+  <div class="modal fade" id="projectdescription-modal" role="dialog">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header center-block">
+                  <h2 class="modal-title" style="text-align: center">pZika</h2>
+              </div>
+              <div class="modal-body" style="text-align: center">
+                  <p><i>
+                    <img src = https://maps.google.com/mapfiles/ms/icons/green-dot.png> - Zika effected but less than 10% chance of spreading.</i></p><br>
+                  <p><i>
+                      <img src = https://maps.google.com/mapfiles/ms/icons/blue-dot.png> - Zika effected greater than 20% chance of spreading.</i></p><br>
+                  <p><i>
+                      <img src = https://maps.google.com/mapfiles/ms/icons/red-dot.png> - Zika effected but greater than 50% chance of spreading.</i></p><br>
+                  <p><i>
+                      <img src = http://maps.gpsvisualizer.com/google_maps/icons/circle/green.png> - The size of the circle determines the area of Spread.</i></p>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div id="mainbody" style="height:100%">
+      <div id="map" style="height:100%"></div>
+      <div class="modal fade" id="myModal" >
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="myModalLabel"></h4>
+                  </div>
+                  <div class="modal-body" id="myModalBody">
+                  </div>
+                  <!--<div class="modal-footer">-->
+                  <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+                  <!--<button type="button" class="btn btn-primary">Save changes</button>-->
+                  <!--</div>-->
+              </div>
+          </div>
+      </div>
+        <div>
+
+
+            <
+        </div>
+    </div>
+    <script>
+
+
+
+
+
+      //tracker();
+      //alert(lat);
+
+      function initMap() {
+          var infowindow =  new google.maps.InfoWindow({
+              content: ''
+          });
+
+          var popinfowindow =  new google.maps.InfoWindow({
+              content: ''
+          });
+
+        //var myLatLng = new google.maps.LatLng(-25.363, 131.044);
+
+        map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 5,
+          center: {lat: 33, lng: -100}
+
+        });
+
+        //alert(mydata.results.length);
+        for (var i = 0; i < mydata.results.length; i++) {
+            if (mydata.results[i].risk < 2) {
+                var image = 'http://maps.google.com/mapfiles/ms/icons/green-dot.png';
+                var stat = 'Lowly Affected';
+            }
+            else if (mydata.results[i].risk < 6) {
+                var image = 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png';
+                var stat = 'Medium Affected';
+            }
+            else if (mydata.results[i].risk > 5) {
+                var image = 'http://maps.google.com/mapfiles/ms/icons/red-dot.png';
+                var stat = 'Highly Affected';
+            }
+            marker = new google.maps.Marker({
+                icon: image,
+                position: new google.maps.LatLng(mydata.results[i].latitude, mydata.results[i].longitude),
+                map: map,
+                animation: google.maps.Animation.DROP,
+                title: mydata.results[i].city
+            });
+            bindInfoWindow(marker, map, infowindow, popinfowindow, i, stat);
+        }
+          //alert(mydata.results2.length);
+          for (var j = 0; j < mydata.results2.length; j++) {
+//              alert(mydata.results2[j].risk);
+              //alert(mydata.results2[j].pop);
+              if(mydata.results2[j].risk < 2){
+                  var color = '#008000';
+                  var stroke = 5;
+              }
+              else if (mydata.results2[j].risk < 6){
+                  var color = '#000080';
+                  var stroke = 3;
+              }
+              else if (mydata.results2[j].risk > 5){
+                  var color = '#800000';
+                  var stroke = 1;
+              }
+
+            var cityCircle = new google.maps.Circle({
+                    strokeColor: color,
+                    strokeOpacity: 0.8,
+                    strokeWeight: 1,
+                    fillColor: color,
+                    fillOpacity: 0.25,
+                    map: map,
+                    center:  new google.maps.LatLng(mydata.results[j].latitude, mydata.results[j].longitude),
+                    radius: mydata.results2[j].pop*10000
+                });
+
+
+        }
+          function bindInfoWindow(marker, map, infowindow, popinfowindow, i, stat) {
+              google.maps.event.addListener(marker, 'mouseover', function () {
+                  popinfowindow.setContent('<div class="panel panel-default">' +
+                          '<div class="panel-heading">'+marker.title+'</div>' +
+                          '<div class="panel-body">' +
+                          '<p>' + stat + '</p>' +
+                          '<p>Approximate arrivals from Zika affected areas : ' + mydata.results[i].pop + '</p>' +
+                          '</div>' +
+                          '</div>');
+                  popinfowindow.open(map, marker);
+              });
+
+              google.maps.event.addListener(marker, 'click', function () {
+                  infowindow.setContent('<div class="panel panel-default">' +
+                          '<div class="panel-heading">See Nearby:</div>' +
+                          '<div class="panel-body">' +
+                          '<p><button type="button" class="btn btn-primary hotelbuttons" id="'+marker.title+'">Hotels</button>' +
+                          '&nbsp;&nbsp;<button type="button" class="btn btn-success pharmacybuttons" id="'+marker.title+'">Pharmacy</button></p>' +
+                          '</div>' +
+                          '</div>');
+                  infowindow.open(map, marker);
+                  //info.open(map, marker);
+              });
+
+              google.maps.event.addListener(marker, 'mouseout', function () {
+                  popinfowindow.close();
+              });
+          }
+          imarker = new google.maps.Marker({
+
+              icon: 'http://maps.google.com/mapfiles/dir_0.png',
+              position: ({lat: -23, lng: 23}),
+              map: map,
+              title: 'You are HERE'
+          });
+
+
+       /* heatmap = new google.maps.visualization.HeatmapLayer({
+          data: getPoints(),
+          map: map
+        });
+        changeGradient();*/
+
+
+      }
+
+/*
+     function getPoints() {
+         var mycoord = new Array();
+            for(var i=0; i < mydatajson.length; i++){
+                mycoord.push(new google.maps.LatLng(mydatajson[i].latitude, mydatajson[i].longitude));
+
+            }
+        return mycoord;
+      }*/
+
+      function goback(){
+          if(watchID!=null){
+              navigator.geolocation.clearWatch(watchID);
+          }
+          map.setZoom(5);
+          map.setCenter({lat: 33, lng: -100});
+      }
+      function showLocation(position) {
+          lat = position.coords.latitude;
+          lon = position.coords.longitude;
+          map.panTo({lat: lat, lng: lon});
+          //map.setZoom(20);
+          imarker.setPosition({lat: lat, lng: lon});
+//        var a = getDistanceFromLatLonInKm();
+//        alert(a);
+      }
+
+      var n, ou;
+      var entered=false;
+      var o;
+
+      function find(){
+          if(n!=null) {
+              a = getDistanceFromLatLonInKm(lat, lon, n,ou);
+              if(a>10) {
+                  alert("You are Out of the Zika Zone, we will notify you if you enter one...");
+                  entered = false;
+                  n = null;
+                  ou = null;
+              }
+          }
+
+          for (var i = 0; i < mydata.results.length; i++) {
+              a = getDistanceFromLatLonInKm(lat, lon, mydata.results[i].latitude, mydata.results[i].longitude);
+              if(a < 10 && !entered) {
+                  o = i;
+                  n = mydata.results[i].latitude;
+                  ou = mydata.results[i].longitude;
+                  entered=true;
+                  var bodhtml = '<br><br><br><p><i style="font-size: 100%;"><div style="font-size: 125%"> You have entered a <strong>Zika</strong> location with '+(mydata.results[i].risk * 10)+ '% chance of spread. Please consider the following precautions</div> <br><br><br>' +
+                          '<b>Steps to prevent mosquito bites:-</b><br><br>'+
+                  '1. Wear long-sleeved shirts and long pants.<br>'+
+                  '2. Stay in places with air conditioning and window and door screens to keep mosquitoes outside.<br>'+
+                  '3. Take steps to control mosquitoes inside and outside your home.<br>'+
+                  '4. Sleep under a mosquito bed net if you are overseas or outside and are not able to protect yourself from mosquito bites.<br>'+
+                  '5. Dress your child in clothing that covers arms and legs.<br>'+
+                  '6. Cover crib, stroller, and baby carrier with mosquito netting.<br>'+
+                          'Do not apply insect repellent onto a child’s hands, eyes, mouth, and cut or irritated skin.<br>'+
+                          'Adults: Spray insect repellent onto your hands and then apply to a child’s face.<br>'+
+                  '</i></p><br><br><br><p style="font-size: 150%; font-weight: bolder"> Please click the marker for info about Zika free Hotels and Pharmacies</p>';
+                  $('#precautionsbody').html(bodhtml);
+                  $('#Precautions-modal').modal('show');
+                   }
+
+          }
+
+
+      }
+
+
+      function showLocation(position) {
+        lat = position.coords.latitude;
+        lon = position.coords.longitude;
+          map.panTo({lat: lat, lng: lon});
+          map.setZoom(12);
+          imarker.setPosition({lat: lat, lng: lon});
+           // check();
+          find();
+        //alert("Latitude : " + lat + " Longitude: " + lon);
+//         setCoords();
+          //alert("hi");
+
+         //alert(a);
+
+
+      }
+//      function setCoords(){
+//          map.panTo({lat: lat, lng: lon});
+//          //map.setZoom(20);
+//          imarker.setPosition({lat: lat, lng: lon});
+//          tracker();
+//      }
+
+      function errorHandler(err) {
+        if(err.code == 1) {
+          alert("Error: Access is denied!");
+        }
+
+        else if( err.code == 2) {
+          //alert("Error: Position is unavailable!");
+        }
+      }
+
+      function tracker(){
+        if(navigator.geolocation){
+          // timeout at 60000 milliseconds (60 seconds)
+          var options = {enableHighAccuracy: true, timeout: 20000};
+          geoLoc = navigator.geolocation;
+          watchID = geoLoc.watchPosition(showLocation, errorHandler, options);
+//            {enableHighAccuracy: true, timeout: 1000 }
+        }
+
+        else{
+          alert("Sorry, browser does not support geolocation!");
+        }
+          //setTimeout(tracker, 1000);
+      }
+
+      function getDistanceFromLatLonInKm(flt, fln, slt, sln) {
+          //alert(flt);alert(fln);alert(slt);alert(sln);
+          var R = 6371; // Radius of the earth in km
+          var dLat = deg2rad(flt-slt);  // deg2rad below
+          var dLon = deg2rad(fln-sln);
+          var a =
+                          Math.sin(dLat/2) * Math.sin(dLat/2) +
+                          Math.cos(deg2rad(slt)) * Math.cos(deg2rad(flt)) *
+                          Math.sin(dLon/2) * Math.sin(dLon/2)
+                  ;
+          var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+          var d = R * c; // Distance in km
+          return Math.round(d);
+      }
+
+      function deg2rad(deg) {
+          return deg * (Math.PI/180)
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=visualization&callback=initMap"></script>
+        <!--</script>-->
+  </body>
+</html>
+
+

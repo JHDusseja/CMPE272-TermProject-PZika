@@ -1,0 +1,602 @@
+[
+	{
+		"SourceCountry": "United States",
+		"SourceCity": "Georgia",
+		"DestinationCountry": "United States",
+		"DestinationCity": "Indianapolis"
+	},
+	{
+		"SourceCountry": "Brazil",
+		"SourceCity": "Campinas",
+		"DestinationCountry": "United States",
+		"DestinationCity": "Duque de Caxias"
+	},
+	{
+		"SourceCountry": "Brazil",
+		"SourceCity": "Marabá",
+		"DestinationCountry": "Brazil",
+		"DestinationCity": "São Luís"
+	},
+	{
+		"SourceCountry": "United States",
+		"SourceCity": "Mobile",
+		"DestinationCountry": "Brazil",
+		"DestinationCity": "Salt Lake City"
+	},
+	{
+		"SourceCountry": "Brazil",
+		"SourceCity": "Maringá",
+		"DestinationCountry": "Brazil",
+		"DestinationCity": "Porto Alegre"
+	},
+	{
+		"SourceCountry": "Brazil",
+		"SourceCity": "Rio de Janeiro",
+		"DestinationCountry": "Brazil",
+		"DestinationCity": "Rio Grande"
+	},
+	{
+		"SourceCountry": "United States",
+		"SourceCity": "Oklahoma City",
+		"DestinationCountry": "Brazil",
+		"DestinationCity": "Rochester"
+	},
+	{
+		"SourceCountry": "United States",
+		"SourceCity": "Sacramento",
+		"DestinationCountry": "United States",
+		"DestinationCity": "Rochester"
+	},
+	{
+		"SourceCountry": "Brazil",
+		"SourceCity": "Curitiba",
+		"DestinationCountry": "United States",
+		"DestinationCity": "Cametá"
+	},
+	{
+		"SourceCountry": "Brazil",
+		"SourceCity": "Santa Maria",
+		"DestinationCountry": "United States",
+		"DestinationCity": "Carapicuíba"
+	},
+	{
+		"SourceCountry": "Brazil",
+		"SourceCity": "Londrina",
+		"DestinationCountry": "Brazil",
+		"DestinationCity": "Carapicuíba"
+	},
+	{
+		"SourceCountry": "United States",
+		"SourceCity": "St. Petersburg",
+		"DestinationCountry": "United States",
+		"DestinationCity": "Kaneohe"
+	},
+	{
+		"SourceCountry": "United States",
+		"SourceCity": "Grand Rapids",
+		"DestinationCountry": "Brazil",
+		"DestinationCity": "Fresno"
+	},
+	{
+		"SourceCountry": "Brazil",
+		"SourceCity": "Uberaba",
+		"DestinationCountry": "United States",
+		"DestinationCity": "Santa Rita"
+	},
+	{
+		"SourceCountry": "United States",
+		"SourceCity": "Jackson",
+		"DestinationCountry": "Brazil",
+		"DestinationCity": "Ketchikan"
+	},
+	{
+		"SourceCountry": "United States",
+		"SourceCity": "Allentown",
+		"DestinationCountry": "Brazil",
+		"DestinationCity": "Bear"
+	},
+	{
+		"SourceCountry": "United States",
+		"SourceCity": "Hattiesburg",
+		"DestinationCountry": "Brazil",
+		"DestinationCity": "Grand Rapids"
+	},
+	{
+		"SourceCountry": "Brazil",
+		"SourceCity": "Nova Iguaçu",
+		"DestinationCountry": "Brazil",
+		"DestinationCity": "Ananindeua"
+	},
+	{
+		"SourceCountry": "United States",
+		"SourceCity": "Green Bay",
+		"DestinationCountry": "United States",
+		"DestinationCity": "Missoula"
+	},
+	{
+		"SourceCountry": "Brazil",
+		"SourceCity": "Colombo",
+		"DestinationCountry": "Brazil",
+		"DestinationCity": "Petrópolis"
+	},
+	{
+		"SourceCountry": "Brazil",
+		"SourceCity": "Paulista",
+		"DestinationCountry": "Brazil",
+		"DestinationCity": "Betim"
+	},
+	{
+		"SourceCountry": "United States",
+		"SourceCity": "Olathe",
+		"DestinationCountry": "United States",
+		"DestinationCity": "Dover"
+	},
+	{
+		"SourceCountry": "United States",
+		"SourceCity": "Honolulu",
+		"DestinationCountry": "United States",
+		"DestinationCity": "Norfolk"
+	},
+	{
+		"SourceCountry": "Brazil",
+		"SourceCity": "São José",
+		"DestinationCountry": "Brazil",
+		"DestinationCity": "Maracanaú"
+	},
+	{
+		"SourceCountry": "United States",
+		"SourceCity": "Springfield",
+		"DestinationCountry": "United States",
+		"DestinationCity": "Detroit"
+	},
+	{
+		"SourceCountry": "Brazil",
+		"SourceCity": "Camaragibe",
+		"DestinationCountry": "Brazil",
+		"DestinationCity": "Castanhal"
+	},
+	{
+		"SourceCountry": "Brazil",
+		"SourceCity": "Maracanaú",
+		"DestinationCountry": "Brazil",
+		"DestinationCity": "Ponta Grossa"
+	},
+	{
+		"SourceCountry": "United States",
+		"SourceCity": "Wyoming",
+		"DestinationCountry": "United States",
+		"DestinationCity": "Savannah"
+	},
+	{
+		"SourceCountry": "Brazil",
+		"SourceCity": "Itabuna",
+		"DestinationCountry": "Brazil",
+		"DestinationCity": "Juazeiro do Norte"
+	},
+	{
+		"SourceCountry": "Brazil",
+		"SourceCity": "Piracicaba",
+		"DestinationCountry": "United States",
+		"DestinationCity": "Joinville"
+	},
+	{
+		"SourceCountry": "Brazil",
+		"SourceCity": "Santa Rita",
+		"DestinationCountry": "United States",
+		"DestinationCity": "Santa Inês"
+	},
+	{
+		"SourceCountry": "Brazil",
+		"SourceCity": "Rio de Janeiro",
+		"DestinationCountry": "Brazil",
+		"DestinationCity": "Foz do Iguaçu"
+	},
+	{
+		"SourceCountry": "United States",
+		"SourceCity": "Toledo",
+		"DestinationCountry": "United States",
+		"DestinationCity": "Newark"
+	},
+	{
+		"SourceCountry": "Brazil",
+		"SourceCity": "Itapipoca",
+		"DestinationCountry": "Brazil",
+		"DestinationCity": "Campina Grande"
+	},
+	{
+		"SourceCountry": "Brazil",
+		"SourceCity": "Camaçari",
+		"DestinationCountry": "Brazil",
+		"DestinationCity": "Fortaleza"
+	},
+	{
+		"SourceCountry": "United States",
+		"SourceCity": "Kenosha",
+		"DestinationCountry": "Brazil",
+		"DestinationCity": "Hillsboro"
+	},
+	{
+		"SourceCountry": "United States",
+		"SourceCity": "Chandler",
+		"DestinationCountry": "Brazil",
+		"DestinationCity": "Portland"
+	},
+	{
+		"SourceCountry": "Brazil",
+		"SourceCity": "Paço do Lumiar",
+		"DestinationCountry": "United States",
+		"DestinationCity": "Cajazeiras"
+	},
+	{
+		"SourceCountry": "United States",
+		"SourceCity": "Gaithersburg",
+		"DestinationCountry": "United States",
+		"DestinationCity": "Rockville"
+	},
+	{
+		"SourceCountry": "Brazil",
+		"SourceCity": "Sobral",
+		"DestinationCountry": "United States",
+		"DestinationCity": "Paulista"
+	},
+	{
+		"SourceCountry": "Brazil",
+		"SourceCity": "Joinville",
+		"DestinationCountry": "United States",
+		"DestinationCity": "Valparaíso de Goiás"
+	},
+	{
+		"SourceCountry": "United States",
+		"SourceCity": "Racine",
+		"DestinationCountry": "Brazil",
+		"DestinationCity": "San Antonio"
+	},
+	{
+		"SourceCountry": "Brazil",
+		"SourceCity": "Camaçari",
+		"DestinationCountry": "Brazil",
+		"DestinationCity": "Campina Grande"
+	},
+	{
+		"SourceCountry": "United States",
+		"SourceCity": "North Las Vegas",
+		"DestinationCountry": "Brazil",
+		"DestinationCity": "Tacoma"
+	},
+	{
+		"SourceCountry": "United States",
+		"SourceCity": "Bozeman",
+		"DestinationCountry": "United States",
+		"DestinationCity": "Sacramento"
+	},
+	{
+		"SourceCountry": "Brazil",
+		"SourceCity": "Criciúma",
+		"DestinationCountry": "United States",
+		"DestinationCity": "João Pessoa"
+	},
+	{
+		"SourceCountry": "Brazil",
+		"SourceCity": "Crato",
+		"DestinationCountry": "Brazil",
+		"DestinationCity": "Lauro de Freitas"
+	},
+	{
+		"SourceCountry": "Brazil",
+		"SourceCity": "Paulista",
+		"DestinationCountry": "United States",
+		"DestinationCity": "Cajazeiras"
+	},
+	{
+		"SourceCountry": "United States",
+		"SourceCity": "Racine",
+		"DestinationCountry": "United States",
+		"DestinationCity": "Fairbanks"
+	},
+	{
+		"SourceCountry": "United States",
+		"SourceCity": "South Burlington",
+		"DestinationCountry": "Brazil",
+		"DestinationCity": "Gillette"
+	},
+	{
+		"SourceCountry": "United States",
+		"SourceCity": "Toledo",
+		"DestinationCountry": "Brazil",
+		"DestinationCity": "Georgia"
+	},
+	{
+		"SourceCountry": "United States",
+		"SourceCity": "Detroit",
+		"DestinationCountry": "Brazil",
+		"DestinationCity": "Columbia"
+	},
+	{
+		"SourceCountry": "United States",
+		"SourceCity": "Warren",
+		"DestinationCountry": "Brazil",
+		"DestinationCity": "Fairbanks"
+	},
+	{
+		"SourceCountry": "Brazil",
+		"SourceCity": "Caxias do Sul",
+		"DestinationCountry": "United States",
+		"DestinationCity": "Cascavel"
+	},
+	{
+		"SourceCountry": "Brazil",
+		"SourceCity": "Abaetetuba",
+		"DestinationCountry": "Brazil",
+		"DestinationCity": "Pelotas"
+	},
+	{
+		"SourceCountry": "United States",
+		"SourceCity": "Shreveport",
+		"DestinationCountry": "United States",
+		"DestinationCity": "Kenosha"
+	},
+	{
+		"SourceCountry": "United States",
+		"SourceCity": "Lincoln",
+		"DestinationCountry": "Brazil",
+		"DestinationCity": "Flint"
+	},
+	{
+		"SourceCountry": "Brazil",
+		"SourceCity": "São José dos Pinhais",
+		"DestinationCountry": "Brazil",
+		"DestinationCity": "Divinópolis"
+	},
+	{
+		"SourceCountry": "Brazil",
+		"SourceCity": "Montes Claros",
+		"DestinationCountry": "Brazil",
+		"DestinationCity": "Imperatriz"
+	},
+	{
+		"SourceCountry": "Brazil",
+		"SourceCity": "São José dos Pinhais",
+		"DestinationCountry": "Brazil",
+		"DestinationCity": "Ipatinga"
+	},
+	{
+		"SourceCountry": "United States",
+		"SourceCity": "Juneau",
+		"DestinationCountry": "Brazil",
+		"DestinationCity": "Bridgeport"
+	},
+	{
+		"SourceCountry": "Brazil",
+		"SourceCity": "Santa Inês",
+		"DestinationCountry": "Brazil",
+		"DestinationCity": "Águas Lindas de Goiás"
+	},
+	{
+		"SourceCountry": "Brazil",
+		"SourceCity": "Caruaru",
+		"DestinationCountry": "United States",
+		"DestinationCity": "Patos"
+	},
+	{
+		"SourceCountry": "United States",
+		"SourceCity": "Baltimore",
+		"DestinationCountry": "United States",
+		"DestinationCity": "Fort Collins"
+	},
+	{
+		"SourceCountry": "Brazil",
+		"SourceCity": "Bayeux",
+		"DestinationCountry": "United States",
+		"DestinationCity": "Campos dos Goytacazes"
+	},
+	{
+		"SourceCountry": "United States",
+		"SourceCity": "West Jordan",
+		"DestinationCountry": "United States",
+		"DestinationCity": "Clarksville"
+	},
+	{
+		"SourceCountry": "Brazil",
+		"SourceCity": "Valparaíso de Goiás",
+		"DestinationCountry": "Brazil",
+		"DestinationCity": "Barra do Corda"
+	},
+	{
+		"SourceCountry": "United States",
+		"SourceCity": "Aurora",
+		"DestinationCountry": "Brazil",
+		"DestinationCity": "Philadelphia"
+	},
+	{
+		"SourceCountry": "United States",
+		"SourceCity": "Springfield",
+		"DestinationCountry": "Brazil",
+		"DestinationCity": "Springdale"
+	},
+	{
+		"SourceCountry": "Brazil",
+		"SourceCity": "Guarapuava",
+		"DestinationCountry": "United States",
+		"DestinationCity": "Guarulhos"
+	},
+	{
+		"SourceCountry": "United States",
+		"SourceCity": "Saint Paul",
+		"DestinationCountry": "Brazil",
+		"DestinationCity": "Bloomington"
+	},
+	{
+		"SourceCountry": "United States",
+		"SourceCity": "Columbus",
+		"DestinationCountry": "Brazil",
+		"DestinationCity": "Bridgeport"
+	},
+	{
+		"SourceCountry": "Brazil",
+		"SourceCity": "Itajaí",
+		"DestinationCountry": "United States",
+		"DestinationCity": "Petrolina"
+	},
+	{
+		"SourceCountry": "United States",
+		"SourceCity": "Sioux City",
+		"DestinationCountry": "Brazil",
+		"DestinationCity": "Newport News"
+	},
+	{
+		"SourceCountry": "Brazil",
+		"SourceCity": "Juazeiro",
+		"DestinationCountry": "United States",
+		"DestinationCity": "Timon"
+	},
+	{
+		"SourceCountry": "United States",
+		"SourceCity": "Butte",
+		"DestinationCountry": "United States",
+		"DestinationCity": "Athens"
+	},
+	{
+		"SourceCountry": "United States",
+		"SourceCity": "Cleveland",
+		"DestinationCountry": "Brazil",
+		"DestinationCity": "Mesa"
+	},
+	{
+		"SourceCountry": "United States",
+		"SourceCity": "Gulfport",
+		"DestinationCountry": "Brazil",
+		"DestinationCity": "Spokane"
+	},
+	{
+		"SourceCountry": "United States",
+		"SourceCity": "Owensboro",
+		"DestinationCountry": "United States",
+		"DestinationCity": "Kailua"
+	},
+	{
+		"SourceCountry": "United States",
+		"SourceCity": "Birmingham",
+		"DestinationCountry": "Brazil",
+		"DestinationCity": "Saint Louis"
+	},
+	{
+		"SourceCountry": "United States",
+		"SourceCity": "Springfield",
+		"DestinationCountry": "Brazil",
+		"DestinationCity": "Colchester"
+	},
+	{
+		"SourceCountry": "Brazil",
+		"SourceCity": "Itapipoca",
+		"DestinationCountry": "United States",
+		"DestinationCity": "Criciúma"
+	},
+	{
+		"SourceCountry": "Brazil",
+		"SourceCity": "Divinópolis",
+		"DestinationCountry": "United States",
+		"DestinationCity": "Santa Luzia"
+	},
+	{
+		"SourceCountry": "Brazil",
+		"SourceCity": "Mauá",
+		"DestinationCountry": "United States",
+		"DestinationCity": "Pelotas"
+	},
+	{
+		"SourceCountry": "Brazil",
+		"SourceCity": "Sobral",
+		"DestinationCountry": "United States",
+		"DestinationCity": "Campina Grande"
+	},
+	{
+		"SourceCountry": "Brazil",
+		"SourceCity": "Bragança",
+		"DestinationCountry": "Brazil",
+		"DestinationCity": "São João de Meriti"
+	},
+	{
+		"SourceCountry": "United States",
+		"SourceCity": "Frederick",
+		"DestinationCountry": "Brazil",
+		"DestinationCity": "Hattiesburg"
+	},
+	{
+		"SourceCountry": "United States",
+		"SourceCity": "Norman",
+		"DestinationCountry": "United States",
+		"DestinationCity": "College"
+	},
+	{
+		"SourceCountry": "United States",
+		"SourceCity": "Burlington",
+		"DestinationCountry": "Brazil",
+		"DestinationCity": "Indianapolis"
+	},
+	{
+		"SourceCountry": "United States",
+		"SourceCity": "Norman",
+		"DestinationCountry": "United States",
+		"DestinationCity": "Vancouver"
+	},
+	{
+		"SourceCountry": "Brazil",
+		"SourceCity": "João Pessoa",
+		"DestinationCountry": "Brazil",
+		"DestinationCity": "Campina Grande"
+	},
+	{
+		"SourceCountry": "United States",
+		"SourceCity": "Dover",
+		"DestinationCountry": "Brazil",
+		"DestinationCity": "Tuscaloosa"
+	},
+	{
+		"SourceCountry": "Brazil",
+		"SourceCity": "Feira de Santana",
+		"DestinationCountry": "United States",
+		"DestinationCity": "Feira de Santana"
+	},
+	{
+		"SourceCountry": "United States",
+		"SourceCity": "Glendale",
+		"DestinationCountry": "United States",
+		"DestinationCity": "Birmingham"
+	},
+	{
+		"SourceCountry": "Brazil",
+		"SourceCity": "Florianópolis",
+		"DestinationCountry": "United States",
+		"DestinationCity": "Caxias"
+	},
+	{
+		"SourceCountry": "Brazil",
+		"SourceCity": "Santa Inês",
+		"DestinationCountry": "United States",
+		"DestinationCity": "Carapicuíba"
+	},
+	{
+		"SourceCountry": "Brazil",
+		"SourceCity": "Camaçari",
+		"DestinationCountry": "Brazil",
+		"DestinationCity": "Caucaia"
+	},
+	{
+		"SourceCountry": "Brazil",
+		"SourceCity": "Vitória da Conquista",
+		"DestinationCountry": "United States",
+		"DestinationCity": "Sousa"
+	},
+	{
+		"SourceCountry": "United States",
+		"SourceCity": "Chicago",
+		"DestinationCountry": "Brazil",
+		"DestinationCity": "Atlanta"
+	},
+	{
+		"SourceCountry": "Brazil",
+		"SourceCity": "Itabuna",
+		"DestinationCountry": "Brazil",
+		"DestinationCity": "Luziânia"
+	}
+]
